@@ -96,7 +96,7 @@ forecast_data <- quit_forecast(
   cont_limit = 2030, # the year at which the forecast becomes stationary
   first_year = 2010, # the earliest year of data on which the forecast is based
   jump_off_year = 2015,
-  time_horizon = 2030
+  time_horizon = 2100
 )
 
 # Save the estimated transition probabilities
