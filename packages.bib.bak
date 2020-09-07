@@ -1,0 +1,218 @@
+% Encoding: UTF-8
+%% This BibTeX bibliography file was created using BibDesk.
+%% https://bibdesk.sourceforge.io/
+
+%% Created for Duncan Gillespie at 2019-10-21 06:01:17 +0100 
+
+
+%% Saved with string encoding Unicode (UTF-8) 
+
+
+
+@manual{R-base,
+	Address = {Vienna, Austria},
+	Author = {{R Core Team}},
+	Organization = {R Foundation for Statistical Computing},
+	Title = {R: A Language and Environment for Statistical Computing},
+	Url = {https://www.R-project.org/},
+	Year = {2019},
+	Bdsk-Url-1 = {https://www.R-project.org/}}
+
+@manual{R-bit,
+	Author = {Jens Oehlschl{\"a}gel},
+	Note = {R package version 1.1-14},
+	Title = {bit: A Class for Vectors of 1-Bit Booleans},
+	Url = {https://CRAN.R-project.org/package=bit},
+	Year = {2018},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=bit}}
+
+@manual{R-bit64,
+	Author = {Jens Oehlschl{\"a}gel},
+	Note = {R package version 0.9-7},
+	Title = {bit64: A S3 Class for Vectors of 64bit Integers},
+	Url = {https://CRAN.R-project.org/package=bit64},
+	Year = {2017},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=bit64}}
+
+@manual{R-bookdown,
+	Author = {Yihui Xie},
+	Note = {R package version 0.12},
+	Title = {bookdown: Authoring Books and Technical Documents with R Markdown},
+	Url = {https://CRAN.R-project.org/package=bookdown},
+	Year = {2019},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=bookdown}}
+
+@manual{R-cowplot,
+	Author = {Claus O. Wilke},
+	Note = {R package version 0.9.4},
+	Title = {cowplot: Streamlined Plot Theme and Plot Annotations for 'ggplot2'},
+	Url = {https://CRAN.R-project.org/package=cowplot},
+	Year = {2019},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=cowplot}}
+
+@manual{R-data.table,
+	Author = {Matt Dowle and Arun Srinivasan},
+	Note = {R package version 1.12.2},
+	Title = {data.table: Extension of `data.frame`},
+	Url = {https://CRAN.R-project.org/package=data.table},
+	Year = {2019},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=data.table}}
+
+@manual{R-demography,
+	Author = {Rob J Hyndman with contributions from Heather Booth and Leonie Tickle and John Maindonald.},
+	Note = {R package version 1.22},
+	Title = {demography: Forecasting Mortality, Fertility, Migration and Population Data},
+	Url = {https://CRAN.R-project.org/package=demography},
+	Year = {2019},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=demography}}
+
+@manual{R-forecast,
+	Author = {Rob Hyndman and George Athanasopoulos and Christoph Bergmeir and Gabriel Caceres and Leanne Chhay and Mitchell O'Hara-Wild and Fotios Petropoulos and Slava Razbash and Earo Wang and Farah Yasmeen},
+	Note = {R package version 8.7},
+	Title = {forecast: Forecasting Functions for Time Series and Linear Models},
+	Url = {https://CRAN.R-project.org/package=forecast},
+	Year = {2019},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=forecast}}
+
+@manual{R-ggplot2,
+	Author = {Hadley Wickham and Winston Chang and Lionel Henry and Thomas Lin Pedersen and Kohske Takahashi and Claus Wilke and Kara Woo},
+	Note = {R package version 3.1.1},
+	Title = {ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics},
+	Url = {https://CRAN.R-project.org/package=ggplot2},
+	Year = {2019},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=ggplot2}}
+
+@manual{R-ggthemes,
+	Author = {Jeffrey B. Arnold},
+	Note = {R package version 4.1.1},
+	Title = {ggthemes: Extra Themes, Scales and Geoms for 'ggplot2'},
+	Url = {https://CRAN.R-project.org/package=ggthemes},
+	Year = {2019},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=ggthemes}}
+
+@Manual{R-hesr,
+  title         = {hesr: A collection of functions to process Hospital Episode Statistics data for public health economic modelling.},
+  author        = {{Laura Webster and Duncan Gillespie}},
+  year          = {2019},
+  note          = {R package version 0.1.0},
+  date-modified = {2019-10-21 06:00:32 +0100},
+}
+
+@manual{R-hseclean,
+	Author = {Duncan Gillespie},
+	Note = {R package version 0.1.0},
+	Title = {hseclean: Tidy the Health Survey for England Data on tobacco and alcohol},
+	Year = {2019}}
+
+@manual{R-knitr,
+	Author = {Yihui Xie},
+	Note = {R package version 1.22},
+	Title = {knitr: A General-Purpose Package for Dynamic Report Generation in R},
+	Url = {https://CRAN.R-project.org/package=knitr},
+	Year = {2019},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=knitr}}
+
+@manual{R-Matrix,
+	Author = {Douglas Bates and Martin Maechler},
+	Note = {R package version 1.2-17},
+	Title = {Matrix: Sparse and Dense Matrix Classes and Methods},
+	Url = {https://CRAN.R-project.org/package=Matrix},
+	Year = {2019},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=Matrix}}
+
+@manual{R-mort.tools,
+	Author = {Duncan Gillespie},
+	Note = {R package version 1.0.0},
+	Title = {mort.tools: Process ONS mortality microdata},
+	Year = {2019}}
+
+@manual{R-qalyr,
+	Author = {Laura Webster and Duncan Gillespie},
+	Date-Modified = {2019-10-21 06:01:04 +0100},
+	Note = {R package version 0.1.0},
+	Title = {qalyr: Calculate health state utility values},
+	Year = {2019}}
+
+@manual{R-RColorBrewer,
+	Author = {Erich Neuwirth},
+	Note = {R package version 1.1-2},
+	Title = {RColorBrewer: ColorBrewer Palettes},
+	Url = {https://CRAN.R-project.org/package=RColorBrewer},
+	Year = {2014},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=RColorBrewer}}
+
+@manual{R-readxl,
+	Author = {Hadley Wickham and Jennifer Bryan},
+	Note = {R package version 1.3.1},
+	Title = {readxl: Read Excel Files},
+	Url = {https://CRAN.R-project.org/package=readxl},
+	Year = {2019},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=readxl}}
+
+@manual{R-rmarkdown,
+	Author = {JJ Allaire and Yihui Xie and Jonathan McPherson and Javier Luraschi and Kevin Ushey and Aron Atkins and Hadley Wickham and Joe Cheng and Winston Chang and Richard Iannone},
+	Note = {R package version 1.12},
+	Title = {rmarkdown: Dynamic Documents for R},
+	Url = {https://CRAN.R-project.org/package=rmarkdown},
+	Year = {2019},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=rmarkdown}}
+
+@manual{R-smoke.trans,
+	Author = {Duncan Gillespie},
+	Note = {R package version 1.0.0},
+	Title = {smoke.trans: Smoking initiation and quit from survey data},
+	Year = {2019}}
+
+@manual{R-snow,
+	Author = {Luke Tierney and A. J. Rossini and Na Li and H. Sevcikova},
+	Note = {R package version 0.4-3},
+	Title = {snow: Simple Network of Workstations},
+	Url = {https://CRAN.R-project.org/package=snow},
+	Year = {2018},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=snow}}
+
+@manual{R-snowfall,
+	Author = {Jochen Knaus},
+	Note = {R package version 1.84-6.1},
+	Title = {snowfall: Easier cluster computing (based on snow).},
+	Url = {https://CRAN.R-project.org/package=snowfall},
+	Year = {2015},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=snowfall}}
+
+@manual{R-stapmr,
+	Author = {Duncan Gillespie},
+	Note = {R package version 0.2.1},
+	Title = {stapmr: Health-economic effects of tobacco and alcohol policy},
+	Year = {2019}}
+
+@manual{R-stringr,
+	Author = {Hadley Wickham},
+	Note = {R package version 1.4.0},
+	Title = {stringr: Simple, Consistent Wrappers for Common String Operations},
+	Url = {https://CRAN.R-project.org/package=stringr},
+	Year = {2019},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=stringr}}
+
+@manual{R-survey,
+	Author = {Thomas Lumley},
+	Note = {R package version 3.36},
+	Title = {survey: Analysis of Complex Survey Samples},
+	Url = {https://CRAN.R-project.org/package=survey},
+	Year = {2019},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=survey}}
+
+@manual{R-survival,
+	Author = {Terry M Therneau},
+	Note = {R package version 2.44-1.1},
+	Title = {survival: Survival Analysis},
+	Url = {https://CRAN.R-project.org/package=survival},
+	Year = {2019},
+	Bdsk-Url-1 = {https://CRAN.R-project.org/package=survival}}
+
+@manual{R-tobalcepi,
+	Author = {Duncan Gillespie},
+	Note = {R package version 0.1.0},
+	Title = {tobalcepi: Risk functions and attributable fractions for tobacco and alcohol},
+	Year = {2019}}
+
+@Comment{jabref-meta: databaseType:bibtex;}

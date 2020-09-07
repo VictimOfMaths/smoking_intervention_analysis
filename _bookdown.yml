@@ -1,0 +1,8 @@
+book_filename: "STPM_tech_report"
+language:
+  ui:
+    chapter_name: "Section "
+delete_merged_file: true
+output_dir: "docs"
+always_allow_html: yes
+

@@ -1,0 +1,43 @@
+
+  div.qalyr, div.hesr, div.hseclean, div.smoketrans, div.stapmr, div.morttools, div.tobalcepi {
+    padding: 1em;
+    margin: 1em 0;
+    padding-left: 100px;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    min-height: 120px;
+    color: #1f5386;
+    background-color: #bed3ec;
+    border: solid 5px #dfedff;
+  }
+
+  div.qalyr {
+  background-image: url("HEXbadges/qalyr_hex.png");
+}
+
+div.hesr {
+  background-image: url("HEXbadges/hesr_hex.png");
+}
+
+div.hseclean {
+  background-image: url("HEXbadges/hseclean_hex.png");
+}
+
+div.smoketrans {
+  background-image: url("HEXbadges/smoke.trans_hex.png");
+}
+
+div.stapmr {
+  background-image: url("HEXbadges/stapmr_hex.png");
+}
+
+div.morttools {
+  background-image: url("HEXbadges/mort.tools_hex.png");
+}
+
+div.tobalcepi {
+  background-image: url("HEXbadges/tobalcepi_hex.png");
+}
+
+

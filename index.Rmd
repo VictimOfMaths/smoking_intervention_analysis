@@ -1,0 +1,80 @@
+---
+title: "Cost-effectiveness of smoking interventions - example analyses"
+date: "Last updated `r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook:
+    split_bib: FALSE
+    css: style.css
+  bookdown::pdf_book:
+    includes:
+      in_header: preamble.tex
+bibliography: [smoke_cost_effectiveness.bib,packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "A report describing our example workflows for analysis of the cost-effectiveness of smoking interventions"
+urlcolor: blue
+github-repo: STAPM/smoking_intervention_analysis
+always_allow_html: yes
+---
+
+
+```{r setup, include = FALSE, results = 'hide', warning = FALSE}
+
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.pos = 'H'
+)
+
+#suppressPackageStartupMessages(library(magrittr))
+#suppressPackageStartupMessages(library(knitr))
+#suppressPackageStartupMessages(library(kableExtra))
+suppressPackageStartupMessages(library(plyr))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(data.table))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(hseclean))
+suppressPackageStartupMessages(library(readxl))
+suppressPackageStartupMessages(library(mort.tools))
+suppressPackageStartupMessages(library(tobalcepi))
+suppressPackageStartupMessages(library(stringr))
+suppressPackageStartupMessages(library(stapmr))
+suppressPackageStartupMessages(library(smktrans))
+suppressPackageStartupMessages(library(ggthemes))
+suppressPackageStartupMessages(library(RColorBrewer))
+suppressPackageStartupMessages(library(cowplot))
+#suppressPackageStartupMessages(library(hesr))
+#suppressPackageStartupMessages(library(qalyr))
+#suppressPackageStartupMessages(library(gganimate))
+#suppressPackageStartupMessages(library(flextable))
+#suppressPackageStartupMessages(library(captioner))
+
+#knitr::opts_knit$set(root.dir = "/Volumes/Shared/ScHARR/PR_STAPM/Code/R_packages/tobalcepi")
+#knitr::opts_knit$set(root.dir = "X:/ScHARR/PR_STAPM/Code/R_packages/tobalcepi")
+
+```
+
+
+```{r include=FALSE, eval=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+```{r table cap,  include = FALSE, results = 'hide', warning = FALSE}
+# Using the captioner package. 
+#table_nums <- captioner(prefix = "Table")
+```
+
+
+# Preface {#preface}
+
+As part of the STAPM programme of modelling we have built a number of example workflows that show the use of our code for specific purposes. This report introduces and shows the results of a basic analysis of the cost-effectiveness of smoking interventions. The idea is that this will form the starting point for extensions to specific projects.     
+
+Developments are still being worked through, so the code and report are likely to change. All of the STAPM code and documentation are still undergoing internal review by the analyst team. At the moment only members of our team are able to run this code because it depends on a number of private R packages.    
+
+
+
