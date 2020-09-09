@@ -37,7 +37,8 @@ The smoking model is an individual-based simulation of the population dynamics o
 
 The whole model is stratified by sex and socio-economic conditions (where we define socio-economic conditions in terms of Index of Multiple Deprivation quintiles).     
 
-## The example intervention modelled to illustrate the code
+## Example intervention
+
 The intervention modelled in this example has been kept as simple as possible. For more complicated interventions and patient pathways, the `stapmr::SmokeSim()` function could be adapted, or further code developed outside of `stapmr::SmokeSim()`. We model an intervention that is offered to 90\% of smokers aged 55-74 years from 2010 to 2015, that is accepted by 75\% of smokers it is offered to. The intervention is assumed to double to probability that the smokers who receive it during a one year time step in the model will be observed as a former smoker at the next time step.   
 
 ## Output
