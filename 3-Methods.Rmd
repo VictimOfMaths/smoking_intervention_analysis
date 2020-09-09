@@ -1,0 +1,173 @@
+# Methods
+
+
+
+# Mathematical framework {#mathsframework}
+STPM models the movement of individuals among smoking states as they age. It moves in a one-year time step. The youngest age in the model is $A = 11$ years. The oldest age in the model is $\omega = 89$ years. The model does not consider immigration or emmigration from the population between these ages. At each time step a new cohort of individuals aged $A$ are added to the model, and individuals aged $\omega$ are removed from the model. This structure allows the population-level trends in smoking to be modelled as a function of the dynamics of smoking over individual lifecourses.  
+
+We have written Below we first describe how STPM models the individual lifecourse dynamics of smoking, and second describe how the individual lifecourse dynamics are incorporated into a population-level model.  
+
+## Cohort dynamics of smoking
+From a cohort perspective, the model describes how the proportion of individuals in each smoking state ($\theta_u$) changes over age ($a$) (Figure \@ref(fig:stpmtransitions)). There are three smoking states $u$: current, former and never smoker. The proportions of current, former and never smokers at each age are: $\theta_{current}(a)$, $\theta_{former}(a)$, $\theta_{never}(a)$. For former smokers, the model also tracks the number of years that they have spent as a former smoker ($f$); the proportion of former smokers with each number of years as a former smoker is $\eta(f)$.  
+
+```{r stpmtransitions, fig.cap = "State transition diagram.", out.width = "50%", out.extra = "", fig.pos = "h", echo=FALSE, fig.align="center"}
+
+knitr::include_graphics("images/stpmtransitiondiagram.png")
+
+```
+
+Individuals are indexed by three factors that are assumed not to vary with age: birth cohort ($c$), sex ($\psi$), socio-economic conditions ($j$). Socio-economic conditions are defined by quintiles of the 2010 English Index of Multiple Deprivation (giving $j$ five levels); by assuming that socio-economic conditions do not vary with age, the model becomes stratified into five separate sub-populations, among which no movement occurs. To simplify the formulae below, we do not include the notation to stratify by sex or socio-economic conditions.       
+
+If $N(a)$ is the population size at age $a$, then the corresponding number of current smokers is  
+\begin{equation}
+N_{current}(a) = N(a)\theta_{current}(a).(\#eq:currsm)
+\end{equation}  
+
+The number of current smokers at age $a+1$ depends on the addition of new smokers from the never or former smoking states (through initiation and relapse respectively), and on the removal of smokers through quitting or death. The model describes smoking initiation as the age-specific probability $I(a)$ that an individual who is observed as a never smoker at age $a$ will be observed as a current smoker at age $a+1$. Relapse from former smoking at age $a$ and time since quitting $f$ to current smoking at age $a+1$ is defined by the probability $R(a,f)$. Quitting smoking is the age-specific probability $Q(a)$ that a current smoker at age $a$ is observed as a former smoker at age $a+1$. The probability of survival ($s$) from age $a$ to $a+1$ is conditional on age and smoking status: the survival of current smokers is $s_{current}(a)$, former smokers $s_{former}(a, f)$, never smokers $s_{never}(a)$.  
+
+The number of current smokers at age $a+1$ can then be written as  
+\begin{align}
+N_{current}(a+1) &= N(a)\theta_{current}(a)s_{current}(a)[1-Q(a)] \notag \\
+&+N(a)\theta_{former}(a)\sum_{f}\eta(a,f)s_{former}(a, f)R(a,f) \notag \\
+&+N(a)\theta_{never}(a)s_{never}(a)I(a) (\#eq:nsmka1).
+\end{align}  
+
+As is described in Section \@ref(quitest), a re-arranged version of \@ref(eq:nsmka1) to have $Q(a)$ on the left hand side is the mathematical basis for our estimation of the probabilities of quitting smoking. 
+
+For completeness, the number of former smokers is   
+
+\begin{align}
+N_{former}(a+1) &= N(a)\theta_{former}(a)\sum_{f}\eta(a,f)s_{former}(a, f)[1-R(a,f)]\\
+&+N(a)\theta_{current}(a)s_{current}(a)Q(a)(\#eq:nsmka2)
+\end{align} 
+
+
+and the number of never smokers is  
+
+\begin{align}
+N_{never}(a+1) &= N(a)\theta_{never}(a)s_{never}(a)[1-I(a)].(\#eq:nsmka3)
+\end{align}  
+
+## Period dynamics of smoking {#perioddynamics}
+Based on \@ref(eq:nsmka1), \@ref(eq:nsmka2) and \@ref(eq:nsmka3), the model then describes how the cross-sectional distribution of individuals among smoking states observed in time period ($t$) changes over time. The mathematical formulation below draws inspiration from the mathematical description of the dynamics of quantitative traits in age-structured populations by Coulson \& Tuljapurkar [-@Coulson2008].  
+
+The number of current smokers at time $t$ is  
+
+\begin{equation}
+N_{current}(t) = \sum_{a}N(a, t)\theta_{current}(a, t).(\#eq:ncurrt)
+\end{equation}  
+
+The number of current smokers at $t+1$ depends on the change to the number of smokers in each cohort $c$ (where $c = t-a$), and on the turnover of cohorts i.e. the loss of old cohorts and the entry of new cohorts into the population. The dynamics of population size are tracked by using data on the time trend in the number of people at the youngest age $N(A,t)$. The number of current smokers at $t+1$ can then be written as  
+
+\begin{align}
+N_{current}(t+1) &= \sum_{a=A}^{\omega-1}N(a,t)\theta_{current}(a,t)S_{current}(a,t)[1-Q(a,t)] (\#eq:nsmkt11) \\
+&+\sum_{a=A}^{\omega-1}N(a,t)\theta_{former}(a,t)\sum_{f}\eta(a,f,t)S_{former}(a, f,t)R(a,f) (\#eq:nsmkt12) \\
+&+\sum_{a=A}^{\omega-1}N(a,t)\theta_{never}(a,t)S_{never}(a,t)I(a,t) (\#eq:nsmkt13) \\
+&+N(A,t+1)\theta_{current}(A,t+1) (\#eq:nsmkt14) \\
+&-N(\omega,t)\theta_{current}(\omega,t) (\#eq:nsmkt15)
+\end{align}    
+
+where \@ref(eq:nsmkt11) are the current smokers who do not quit, \@ref(eq:nsmkt12) are the former smokers who relapse, \@ref(eq:nsmkt13) are the never smokers who initiate, \@ref(eq:nsmkt14) are the members of the new cohort who arrive at $A$ years, and \@ref(eq:nsmkt15) are the individuals who reach the oldest age of $\omega$ years.  
+
+For former smokers, the formula is  
+
+\begin{align}
+N_{former}(t+1) &= \sum_{a=A}^{\omega-1}N(a,t)\theta_{former}(a,t)\sum_{f}\eta(a,f,t)s_{former}(a, f,t)[1-R(a,f)] \notag \\
+&+\sum_{a=A}^{\omega-1}N(a,t)\theta_{current}(a,t)s_{current}(a,t)Q(a,t) \notag \\
+&+N(A,t+1)\theta_{former}(A,t+1) \notag \\
+&-N(\omega,t)\theta_{former}(\omega,t) (\#eq:fsmkpop)
+\end{align}    
+
+and for never smokers  
+
+\begin{align}
+N_{never}(t+1) &= \sum_{a=A}^{\omega-1}N(a,t)\theta_{never}(a,t)s_{never}(a,t)[1-I(a,t)]\\
+&+N(A,t+1)\theta_{never}(A,t+1)\\
+&-N(\omega,t)\theta_{never}(\omega,t).(\#eq:nevsmkpop)
+\end{align}    
+
+## Change to mortality rates {#updaterates}
+STPM estimates the proportional changes to the rates of cause-specific mortality that would be expected from a change in the distribution of individuals among smoking states. The methodology to do this is based on the mathematical framework of the Sheffield Alcohol Policy Model [@Brennan2015], which in turn is based on the methodology of the PREVENT model presented by Gunning-Schepers [-@Gunning-Schepers:1988aa]. Below we describe how changes to smoking behaviour are linked mathematically to changes in mortality rates.    
+
+### Disease attributable to smoking
+The disease attributable to smoking can be described in terms of the **population attributable fraction**, which for the purposes of this explanation is defined as an estimate of the proportion of new disease cases (disease incidence) in each year that are due to current and former smoking (the exposure). It is therefore called the **smoking attributable fraction (SAF)**.   
+
+The basic derivation of the smoking attributable fraction ($SAF$) is as follows:  
+
+First, express the number of new cases $X$ of disease $d$ (e.g. lung cancer or ischaemic heart disease) in period $t$ at age $a$ in terms of the proportion of people with each smoking status $\theta_u$, the relative increase in the risk of the disease due to smoking $r_u(d)$, and the probability of getting the disease in never smokers $z(d)$  
+
+\begin{align}
+X(d,a,t) &= N(a,t)\theta_{current}(a,t)z(d,a,t)r_{current}(d) (\#eq:cdeath) \\
+&+ N(a,t)\theta_{former}(a,t)z(d,a,t)r_{former}(d) (\#eq:fdeath) \\
+&+ N(a,t)\theta_{never}(a,t)z(d,a,t), (\#eq:ndeath)
+\end{align}
+
+where \@ref(eq:cdeath) is the number of new disease cases in current smokers, \@ref(eq:fdeath) is the number of new diseases cases in former smokers, and \@ref(eq:ndeath) is the number of new disease cases in never smokers. For simplicity, in \@ref(eq:fdeath) the relative risk of disease in former smokers is written without denoting the gradual reduction in risk over time since quitting.   
+
+Next, re-write the relative risk $r$ using $r = 1 + h$, where $h$ is the proportional increase in risk due to smoking    
+
+\begin{align}
+X(d,a,t) &= N(a,t)\theta_{current}(a,t)z(d,a,t)[1+h_{current}(d)] \notag \\
+&+ N(a,t)\theta_{former}(a,t)z(d,a,t)[1+h_{former}(d)] \notag \\
+&+ N(a,t)\theta_{never}(a,t)z(d,a,t). (\#eq:deathnew)
+\end{align}
+
+The formula for the fraction of new disease cases that are due to smoking (the $SAF$) is then obtained from \@ref(eq:deathnew) in two steps:   
+
+- for the numerator, expand the brackets in \@ref(eq:deathnew) and then retain only the terms that give the new disease cases that are due to smoking;   
+- for the denominator, use the full expanded version of \@ref(eq:deathnew), i.e. the total new disease cases.   
+
+\@ref(eq:saf) gives the resulting formula for the $SAF$, simplified and re-expressed in terms of the relative risk of disease $r$.  
+
+\begin{align}
+SAF(d,a,t) &= \frac{
+\theta_{current}(a,t)h_{current}(d) + \theta_{former}(a,t)h_{former}(d)
+}{
+1 + \theta_{current}(a,t)h_{current}(d) +\theta_{former}(a,t)h_{former}(d) 
+} \notag \\
+&= \frac{
+\sum_{u}\theta_{u}(a,t)h_{u}(d)
+}{
+1 + \sum_{u}\theta_{u}(a,t)h_{u}(d)
+} \notag \\
+&= \frac{
+\sum_{u}\theta_{u}(a,t)[r_{u}(d)-1]
+}{
+1 + \sum_{u}\theta_{u}(a,t)[r_{u}(d)-1]} (\#eq:saf)
+\end{align}  
+
+**Note** that the key assumption in applying the smoking attributable fraction to deaths instead of new disease cases is that the population distribution of smoking states at the ages when most new cases of a disease arise is the same as the population distribution of smoking states at the ages when most deaths from that disease occur. Since smoking rates in later life typically fall with age, this assumption is likely not to hold with the result that the fraction of deaths attributable to smoking is likely to be under-estimated. This issue could potentially be solved by simulating individual histories of disease incidence, progression and death, but that is beyond the scope of the current version of STPM.    
+
+### Changes to disease after changes to smoking
+To model change to the rates of disease incidence (or mortality, given the assumption above) after a change to the distribution of individuals among smoking states requires adapting \@ref(eq:saf). We use the adaptation presented by Gunning-Schepers [-@Gunning-Schepers:1988aa], which gives the proportion of new cases that would be prevented by a partial removal of exposure.   
+
+The **potential impact fraction** ($PIF$) is used by Gunning-Schepers to describe the effect of a policy or intervention vs. a counterfactual scenario. To describe the effects of ongoing trends in exposure, Gunning-Schepers [-@Gunning-Schepers:1988aa] used the same formulation to define the **trend impact fraction** ($TIF$). Here the focus is on explaining the use of the $TIF$ in STPM to update mortality rates to correspond to the modelled changes over time in the distribution of individuals among smoking states. Section \@ref(evalmethods) explains how the $PIF$ is used in STPM to model the health and economic effects of a policy or intervention.     
+
+To define the $TIF$, suppose that the distribution of smoking states changes over time from $\theta_u(a,t)$ to $\theta_u(a,t+1)$. Based on \@ref(eq:saf) (and following Gunning-Schepers), the $TIF$ can be written as  
+
+\begin{align}
+TIF(d,a,t) &= \frac{
+\sum_{u}\theta_{u}(a,t)[r_{u}(d)-1] - \sum_{u}\theta_{u}(a,t+1)[r_{u}(d)-1]
+}{
+1 + \sum_{u}\theta_{u}(a,t)[r_{u}(d)-1]}. (\#eq:tif)
+\end{align}  
+
+We then apply the $TIF$ to update the trends in rates of mortality ($m$) over time according to  
+
+\begin{align}
+m(d,a,t+1) &= m(d,a,t)[1 - TIF(d,a,t)].(\#eq:tifmort)
+\end{align}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+

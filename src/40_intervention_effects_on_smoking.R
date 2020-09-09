@@ -18,12 +18,12 @@ smoke_stats <- SmkEffects(
   strat_vars = c("year", "ageband", "sex"),
   two_arms = TRUE)
 
-smoke_stats$prevalence[year == 2016 & ageband == "55-74" & sex == "Male"]
+smoke_stats[year == 2016 & ageband == "55-74" & sex == "Male"]
 
 saveRDS(smoke_stats, "output/smoke_prev_by_year_age_sex.rds")
 
 png("output/intervention_effects_by_age_and_sex.png", units="in", width=12, height=4, res=300)
-ggplot(smoke_stats$prevalence) +
+ggplot(smoke_stats) +
   geom_line(aes(x = year, y = 100 * smk_prev, linetype = arm, colour = sex), size = .4) +
   scale_colour_manual(name = "Sex", values = c('#6600cc','#00cc99')) +
   facet_wrap(~ ageband, nrow = 1) +
